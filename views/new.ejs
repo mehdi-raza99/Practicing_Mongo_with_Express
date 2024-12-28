@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add new Qoute</title>
+    <style>
+        body{
+            margin: 0.5em 1.5em;
+        }
+        input, textarea{
+            display: block;
+            padding: 0.5em;
+            border-radius: 10px;
+            font-size: large;
+            margin-bottom: 1em;
+        }
+    </style>
+</head>
+<body>
+    <form action="/qoute" method="post">
+        <h2><u>Add a new Qoute</u></h2>
+        <input type="text" name="uploader" placeholder="Name of Uploader">
+        <input type="text" name="author" placeholder="Name of Author">
+        <textarea name="qoute" id="" rows="6" cols="22" placeholder="Enter Qoute here"></textarea>
+        <button>Submit</button>
+    </form>
+</body>
+</html>

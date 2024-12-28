@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qoute Bloom</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1><u>Welcome to Qoute Bloom! Read Qoutes and share yours as well!</u></h1>
+    <form action="/qoute/new" method="get">
+        <button>Add a new Qoute</button>
+    </form>
+    <% for( qoute of qoutes ) { %>
+        <h2><%= qoute.qoute %></h2>
+        <h4>Uploader: <i><%= qoute.uploader %></i></h4>
+        <h4>Author: <i><%= qoute.author %></i></h4>
+        <hr>
+    <% } %>
+</body>
+</html>

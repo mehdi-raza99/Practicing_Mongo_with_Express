@@ -1,0 +1,48 @@
+# Node.js dependencies
+/node_modules/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build output
+/dist
+/build
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE/editor files
+.idea/
+.vscode/
+
+# Dependency directories
+/pnpm-lock.yaml
+yarn.lock
+
+# Coverage output
+/coverage/
+
+# npm package-lock files
+package-lock.json
+yarn.lock
+
+# OS-specific files
+*.swp
+*.swo
+
+# Optional: Exclude build folders for frontend (if applicable)
+frontend/build
+frontend/node_modules
+
+# MongoDB-related local files
+/mongo-data/
