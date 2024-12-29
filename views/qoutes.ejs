@@ -15,6 +15,14 @@
         <h2><%= qoute.qoute %></h2>
         <h4>Uploader: <i><%= qoute.uploader %></i></h4>
         <h4>Author: <i><%= qoute.author %></i></h4>
+        <div style="display: inline-flex; gap: 2rem;">
+            <form method="post" action="/qoute/<%= qoute._id %>?_method=DELETE">
+                <button>Delete the post</button>
+            </form>
+            <form method="get" action="/qoute/<%= qoute._id %>/edit">
+                <button>Edit the post</button>
+            </form>
+        </div>
         <hr>
     <% } %>
 </body>

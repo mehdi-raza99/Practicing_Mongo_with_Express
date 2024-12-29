@@ -1,6 +1,7 @@
 const express = require('express')
 const app=express();
 const path=require('path')
+const methodOverride = require('method-override')
 const port=3000;
 const mongoose=require('mongoose');
 const qoute=require('./models/qoute');
@@ -8,6 +9,7 @@ app.set("views",path.join(__dirname,"views"))
 app.set("view engine","ejs")
 app.use(express.static(path.join(__dirname,"public")))
 app.use(express.urlencoded({extended: true}))
+app.use(methodOverride('_method'))
 
 main().then(() => {
     console.log('Connection Established!')
@@ -64,6 +66,28 @@ app.post('/qoute',(req,res) => {
         qoute: qoutation
     })
     newQoute.save().then((res) => {console.log(res);
+    })
+    res.redirect("/qoute")
+})
+app.get('/qoute/:id/edit',async (req,res) => {
+    let {id}=req.params;
+    let requestedQoute=await qoute.findById(id);
+    res.render("edit",{requestedQoute})
+})
+app.patch('/qoute/:id',async (req,res) => {
+    let {id}=req.params;
+    let {uploader,author,qoute: qoutation}=req.body;
+    let updatedQoute=await qoute.findByIdAndUpdate(id,{uploader: uploader,author: author,qoute: qoutation},{runValidators: true,new: true})
+    console.log(updatedQoute);
+    
+    res.redirect("/qoute")
+})
+
+app.delete('/qoute/:id',(req,res) => {
+    let {id}=req.params;
+    qoute.findByIdAndDelete(id).then((res) => {
+        console.log(res);
+        
     })
     res.redirect("/qoute")
 })
